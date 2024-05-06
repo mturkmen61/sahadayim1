@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sahadayim/constants/colors.dart';
+import 'package:sahadayim/routes/routes.dart';
 
 class BuildSkip extends StatelessWidget {
   const BuildSkip({
@@ -28,12 +30,12 @@ class BuildSkip extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
-                backgroundColor: AppColors.greenColor,
+                backgroundColor: AppColors.green,
                 padding: const EdgeInsets.all(12.0),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back,
-                color: AppColors.whiteColor,
+                color: AppColors.white,
               ),
             ),
           const SizedBox(
@@ -60,7 +62,7 @@ class BuildSkip extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               if (currentPageIndex == 2) {
-                print("Başka Sayfa Yok");
+                Get.offAllNamed(Routes.loginScreen);
               } else {
                 print(currentPageIndex);
                 nextPage();
@@ -69,12 +71,12 @@ class BuildSkip extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
-              backgroundColor: AppColors.greenColor,
+              backgroundColor: AppColors.green,
               padding: const EdgeInsets.all(12.0),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.arrow_forward,
-              color: AppColors.whiteColor,
+              color: AppColors.white,
             ),
           ),
         ],
@@ -93,7 +95,7 @@ class BuildDotDivider extends StatelessWidget {
     return Container(
       width: 18,
       height: 2,
-      color: AppColors.greenColor,
+      color: AppColors.green,
     );
   }
 }
@@ -110,7 +112,7 @@ class BuildDot extends StatelessWidget {
       height: 4,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColors.greenColor30,
+        color: AppColors.green30,
       ),
     );
   }

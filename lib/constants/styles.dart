@@ -8,12 +8,12 @@ class TextStyleHelper {
     fontSize: 26.sp,
     fontFamily: "Raleway",
     fontWeight: FontWeight.w700,
-    color: AppColors.blackColor,
+    color: AppColors.black,
   );
   static final grey1 = TextStyle(
     fontSize: 14.sp,
     fontFamily: "Raleway",
     fontWeight: FontWeight.w500,
-    color: AppColors.greyColor,
+    color: AppColors.grey,
   );
 }

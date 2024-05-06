@@ -4,23 +4,18 @@ import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/strings.dart';
 import 'package:sahadayim/constants/styles.dart';
 
-class BuildOnBoardingPage1 extends StatefulWidget {
+class BuildOnBoardingPage1 extends StatelessWidget {
   const BuildOnBoardingPage1({
     super.key,
   });
 
-  @override
-  State<BuildOnBoardingPage1> createState() => _BuildOnBoardingPage1State();
-}
-
-class _BuildOnBoardingPage1State extends State<BuildOnBoardingPage1> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
           SizedBox(height: 80.h),
-          Image.asset(ImageHelper.logo),
+          Image.asset(AppImages.logo),
           //SvgPicture.asset('assets/images/football_player.svg'),
           Center(
             child: Stack(
@@ -33,7 +28,7 @@ class _BuildOnBoardingPage1State extends State<BuildOnBoardingPage1> {
                 Positioned(
                   top: 0,
                   child: Image.asset(
-                    ImageHelper.backGround, // Arkaplan resmi adresi
+                    AppImages.backGround, // Arkaplan resmi adresi
                     width: 376.w,
                     height: 385.h,
                     fit: BoxFit.cover,
@@ -42,7 +37,7 @@ class _BuildOnBoardingPage1State extends State<BuildOnBoardingPage1> {
                 Positioned(
                   top: 40,
                   child: Image.asset(
-                    ImageHelper.footballPlayer, // Üstteki resim adresi
+                    AppImages.footballPlayer, // Üstteki resim adresi
                     width: 400.w,
                     height: 380.h,
                     fit: BoxFit.contain,

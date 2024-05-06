@@ -20,7 +20,7 @@ class _BuildOnBoardingPageState extends State<BuildOnBoardingPage> {
       child: Column(
         children: [
           SizedBox(height: 80.h),
-          Image.asset(ImageHelper.logo),
+          Image.asset(AppImages.logo),
           //SvgPicture.asset('assets/images/football_player.svg'),
           Center(
             child: Stack(
@@ -33,7 +33,7 @@ class _BuildOnBoardingPageState extends State<BuildOnBoardingPage> {
                 Positioned(
                   top: 0,
                   child: Image.asset(
-                    ImageHelper.backGround, // Arkaplan resmi adresi
+                    AppImages.backGround, // Arkaplan resmi adresi
                     width: 376.w,
                     height: 375.h,
                     fit: BoxFit.cover,
@@ -42,7 +42,7 @@ class _BuildOnBoardingPageState extends State<BuildOnBoardingPage> {
                 Positioned(
                   top: 40,
                   child: Image.asset(
-                    ImageHelper.footballPlayer, // Üstteki resim adresi
+                    AppImages.footballPlayer, // Üstteki resim adresi
                     width: 400.w,
                     height: 380.h,
                     fit: BoxFit.contain,

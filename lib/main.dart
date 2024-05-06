@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sahadayim/screens/start/start_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:sahadayim/routes/pages.dart';
+
+import 'bindings/global/initial_binding.dart';
+import 'constants/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,12 +16,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(375, 812),
-      child: MaterialApp(
-        title: 'Sahadayım',
-        home: StartPage1(),
-      ),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (context, child) {
+          return GetMaterialApp(
+            title: 'Sahadayım',
+            theme: ThemeData(
+              dialogBackgroundColor: AppColors.white,
+              useMaterial3: false,
+              dividerTheme: const DividerThemeData(
+                color: AppColors.grey,
+              ),
+            ),
+            initialRoute: Pages.initialRoute,
+            initialBinding: InitialBinding(),
+            getPages: Pages.pageList,
+            debugShowCheckedModeBanner: false,
+          );
+        });
   }
 }
