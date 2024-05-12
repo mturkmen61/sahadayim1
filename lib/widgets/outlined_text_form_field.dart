@@ -54,6 +54,7 @@ class _OutlinedTextFormFieldState extends State<OutlinedTextFormField> {
       style: const TextStyle(
         color: AppColors.black,
         fontSize: 20,
+        fontFamily: "Inter",
         height: 1,
         letterSpacing: -0.16,
       ),
@@ -91,6 +92,7 @@ class _OutlinedTextFormFieldState extends State<OutlinedTextFormField> {
         hintStyle: TextStyle(
             color: AppColors.black.withOpacity(0.25),
             fontSize: 20,
+            fontFamily: "Inter",
             height: 0,
             letterSpacing: -0.2),
       ),

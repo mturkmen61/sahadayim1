@@ -12,7 +12,7 @@ class StartScreenController extends GetxController {
   void backPage() {
     // Bir sonraki sayfaya geçmek için indeksi artır
     //currentPageIndex--;
-    Get.offAllNamed(Routes.profileScreen);
+    Get.offAllNamed(Routes.loginScreen);
     update();
   }
 }

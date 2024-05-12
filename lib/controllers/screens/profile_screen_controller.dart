@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constants/enums.dart';
+
 class ProfileScreenController extends GetxController {
   /// Email Form Key on Profile Screen
   GlobalKey<FormState> userNameFormKey = GlobalKey<FormState>();
@@ -75,5 +77,13 @@ class ProfileScreenController extends GetxController {
       selectedButtonindex = 3;
     }
     update();
+  }
+
+  String mevkiGetir(int index) {
+    if (index < 0 || index >= Mevki.values.length) {
+      throw ArgumentError('Geçersiz indeks: $index');
+    }
+
+    return Mevki.values[index].toString().substring(5);
   }
 }

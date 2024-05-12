@@ -1,6 +1,5 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../constants/colors.dart';
 
@@ -25,16 +24,16 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
   Widget build(BuildContext context) {
     return CustomSlidingSegmentedControl(
       initialValue: toggleValue,
-      fixedWidth: Get.width * 0.35,
+      fixedWidth: 110,
       innerPadding: const EdgeInsets.all(4),
-      height: 60,
       decoration: const BoxDecoration(
+          boxShadow: [BoxShadow()],
           color: AppColors.white,
-
-          /// todo:tasarımdaki renk eklenecek
-          borderRadius: BorderRadius.all(Radius.circular(88))),
+          borderRadius: BorderRadius.all(
+            Radius.circular(88),
+          )),
       thumbDecoration: const BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.green,
         borderRadius: BorderRadius.all(Radius.circular(88)),
       ),
       children: {
@@ -54,10 +53,9 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
   Widget _buildText(String text, bool enabled) => Text(
         text,
         style: TextStyle(
-
-            /// todo : taarım
-            color: enabled ? AppColors.black : AppColors.grey,
-            fontSize: 16,
+            color: enabled ? AppColors.white : AppColors.darkGreen,
+            fontSize: 14,
+            fontFamily: "Inter",
             fontWeight: FontWeight.w500),
       );
 }

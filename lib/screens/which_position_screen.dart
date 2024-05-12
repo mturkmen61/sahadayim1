@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
-import 'package:sahadayim/controllers/screens/which_position_screen_controller.dart';
-import 'package:sahadayim/routes/routes.dart';
+import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
 
-class WhichPositionScreen extends GetView<WhichPositionController> {
+class WhichPositionScreen extends GetView<ProfileScreenController> {
   const WhichPositionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<WhichPositionController>(builder: (_) {
+    return GetBuilder<ProfileScreenController>(builder: (_) {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -32,58 +32,58 @@ class WhichPositionScreen extends GetView<WhichPositionController> {
             Stack(children: [
               Image.asset("assets/images/football_field.png"),
               Positioned(
-                left: 50,
-                top: 100,
+                left: 50.w,
+                top: 100.h,
                 child: buildPosition(1),
               ),
               Positioned(
-                left: 155,
-                top: 100,
+                left: 155.w,
+                top: 100.h,
                 child: buildPosition(2),
               ),
               Positioned(
-                left: 260,
-                top: 100,
+                left: 260.w,
+                top: 100.h,
                 child: buildPosition(3),
               ),
               Positioned(
-                left: 50,
-                top: 225,
+                left: 50.w,
+                top: 225.h,
                 child: buildPosition(4),
               ),
               Positioned(
-                left: 155,
-                top: 225,
+                left: 155.w,
+                top: 225.h,
                 child: buildPosition(5),
               ),
               Positioned(
-                left: 260,
-                top: 225,
+                left: 260.w,
+                top: 225.h,
                 child: buildPosition(6),
               ),
               Positioned(
-                left: 40,
-                top: 340,
+                left: 40.w,
+                top: 340.h,
                 child: buildPosition(7),
               ),
               Positioned(
-                left: 120,
-                top: 340,
+                left: 120.w,
+                top: 340.h,
                 child: buildPosition(8),
               ),
               Positioned(
-                left: 200,
-                top: 340,
+                left: 200.w,
+                top: 340.h,
                 child: buildPosition(9),
               ),
               Positioned(
-                left: 280,
-                top: 340,
+                left: 280.w,
+                top: 340.h,
                 child: buildPosition(10),
               ),
               Positioned(
-                left: 155,
-                top: 410,
+                left: 155.w,
+                top: 410.h,
                 child: buildPosition(11),
               ),
             ]),
@@ -115,9 +115,7 @@ Widget buildSkipButton() {
     children: [
       const SizedBox(),
       InkWell(
-        onTap: () {
-          Get.offAllNamed(Routes.loginScreen);
-        },
+        onTap: () {},
         child: const CircleAvatar(
             radius: 30,
             backgroundColor: Colors.white,

@@ -22,7 +22,10 @@ class StartPage extends GetView<StartScreenController> {
               child: Column(
                 children: [
                   SizedBox(height: 80.h),
-                  Image.asset(AppImages.logo),
+                  Image.asset(
+                    AppImages.logo,
+                    width: 99,
+                  ),
                   //SvgPicture.asset('assets/images/football_player.svg'),
                   Center(
                     child: Stack(
