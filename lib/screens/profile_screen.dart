@@ -135,7 +135,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         const SizedBox(),
         InkWell(
           onTap: () {
-            Get.offAllNamed(Routes.whichPositionScreen);
+            Get.toNamed(Routes.whichPositionScreen);
           },
           child: const CircleAvatar(
               radius: 30,
