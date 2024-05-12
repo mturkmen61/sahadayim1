@@ -32,58 +32,58 @@ class WhichPositionScreen extends GetView<ProfileScreenController> {
             Stack(children: [
               Image.asset("assets/images/football_field.png"),
               Positioned(
-                left: 50.w,
-                top: 100.h,
+                left: 45.w,
+                top: 80.h,
                 child: buildPosition(1),
               ),
               Positioned(
-                left: 155.w,
-                top: 100.h,
+                left: 145.w,
+                top: 80.h,
                 child: buildPosition(2),
               ),
               Positioned(
-                left: 260.w,
-                top: 100.h,
+                left: 245.w,
+                top: 80.h,
                 child: buildPosition(3),
               ),
               Positioned(
-                left: 50.w,
-                top: 225.h,
+                left: 45.w,
+                top: 210.h,
                 child: buildPosition(4),
               ),
               Positioned(
-                left: 155.w,
-                top: 225.h,
+                left: 145.w,
+                top: 210.h,
                 child: buildPosition(5),
               ),
               Positioned(
-                left: 260.w,
-                top: 225.h,
+                left: 245.w,
+                top: 210.h,
                 child: buildPosition(6),
               ),
               Positioned(
-                left: 40.w,
-                top: 340.h,
+                left: 25.w,
+                top: 320.h,
                 child: buildPosition(7),
               ),
               Positioned(
-                left: 120.w,
-                top: 340.h,
+                left: 95.w,
+                top: 320.h,
                 child: buildPosition(8),
               ),
               Positioned(
-                left: 200.w,
-                top: 340.h,
+                left: 190.w,
+                top: 320.h,
                 child: buildPosition(9),
               ),
               Positioned(
-                left: 280.w,
-                top: 340.h,
+                left: 260.w,
+                top: 320.h,
                 child: buildPosition(10),
               ),
               Positioned(
-                left: 155.w,
-                top: 410.h,
+                left: 145.w,
+                top: 390.h,
                 child: buildPosition(11),
               ),
             ]),
@@ -110,17 +110,16 @@ Widget _buildHangiMevkiText() {
 }
 
 Widget buildSkipButton() {
-  return Row(
+  return const Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      const SizedBox(),
-      InkWell(
-        onTap: () {},
-        child: const CircleAvatar(
-            radius: 30,
-            backgroundColor: Colors.white,
-            child: Icon(Icons.arrow_forward_outlined, color: AppColors.green)),
-      ),
+      SizedBox(),
+      CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.white,
+          child: InkWell(
+              child:
+                  Icon(Icons.arrow_forward_outlined, color: AppColors.green))),
     ],
   );
 }
