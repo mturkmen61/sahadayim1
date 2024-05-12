@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:sahadayim/constants/styles.dart';
 
 import '../../constants/assets.dart';
 import '../../constants/colors.dart';
@@ -111,22 +112,23 @@ class LoginScreen extends GetView<LoginScreenController> {
   /// Email text field
   Widget buildEmailTextFormField() {
     return OutlinedTextFormField(
-        validator: UserValidation.emailValidation,
-        controller: controller.emailController,
-        type: TextInputType.emailAddress,
-        onTap: controller.onChangedEmailTextField,
-        onChanged: (value) {
-          controller.onChangedEmailTextField();
-        },
-        suffixIcon: controller.isEmailSuffixIconVisible
-            ? SvgPicture.asset(
-                controller.isEmailValidated
-                    ? AppImages.correct
-                    : AppImages.incorrect,
-                height: 20,
-              )
-            : null,
-        hint: "Email");
+      validator: UserValidation.emailValidation,
+      controller: controller.emailController,
+      type: TextInputType.emailAddress,
+      onTap: controller.onChangedEmailTextField,
+      onChanged: (value) {
+        controller.onChangedEmailTextField();
+      },
+      suffixIcon: controller.isEmailSuffixIconVisible
+          ? SvgPicture.asset(
+              controller.isEmailValidated
+                  ? AppImages.correct
+                  : AppImages.incorrect,
+              height: 20,
+            )
+          : null,
+      hint: "Email",
+    );
   }
 
   /// Password text field

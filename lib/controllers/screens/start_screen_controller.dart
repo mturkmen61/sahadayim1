@@ -1,8 +1,8 @@
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
+import 'package:sahadayim/routes/routes.dart';
 
 class StartScreenController extends GetxController {
   int currentPageIndex = 0; // Başlangıçta gösterilecek sayfa indeksi
-
   void nextPage() {
     // Bir sonraki sayfaya geçmek için indeksi artır
     currentPageIndex++;
@@ -11,7 +11,8 @@ class StartScreenController extends GetxController {
 
   void backPage() {
     // Bir sonraki sayfaya geçmek için indeksi artır
-    currentPageIndex--;
+    //currentPageIndex--;
+    Get.offAllNamed(Routes.profileScreen);
     update();
   }
 }
