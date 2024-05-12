@@ -70,6 +70,7 @@ class _OutlinedTextFormFieldState extends State<OutlinedTextFormField> {
           padding: const EdgeInsets.symmetric(vertical: 18),
           child: widget.suffixIcon,
         ),
+        prefixIcon: widget.prefixIcon,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         enabledBorder: OutlineInputBorder(
