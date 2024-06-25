@@ -79,6 +79,9 @@ flutter:
       - family: Inter
         fonts:
           - asset: assets/fonts/Inter-Regular.ttf
+      - family: Lato
+        fonts:
+          - asset: assets/fonts/Lato-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

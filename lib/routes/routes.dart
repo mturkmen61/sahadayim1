@@ -6,4 +6,5 @@ class Routes {
   static const String emailVerification = '/EmailVerification';
   static const String profileScreen = '/ProfileScreen';
   static const String whichPositionScreen = '/WhichPositionScreen';
+  static const String ilanScreen = '/ilanScreen';
 }

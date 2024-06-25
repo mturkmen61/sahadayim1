@@ -5,6 +5,7 @@ import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
+import 'package:sahadayim/routes/routes.dart';
 
 class WhichPositionScreen extends GetView<ProfileScreenController> {
   const WhichPositionScreen({super.key});
@@ -110,16 +111,20 @@ Widget _buildHangiMevkiText() {
 }
 
 Widget buildSkipButton() {
-  return const Row(
+  return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      SizedBox(),
-      CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.white,
-          child: InkWell(
-              child:
-                  Icon(Icons.arrow_forward_outlined, color: AppColors.green))),
+      const SizedBox(),
+      InkWell(
+        onTap: () {
+          Get.toNamed(Routes.ilanScreen);
+        },
+        child: const CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.white,
+            child:
+            Icon(Icons.arrow_forward_outlined, color: AppColors.green)),
+      ),
     ],
   );
 }
