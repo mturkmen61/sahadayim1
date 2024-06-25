@@ -7,6 +7,7 @@ import 'package:sahadayim/screens/auth/email_verification_screen.dart';
 import 'package:sahadayim/screens/profile_screen.dart';
 import 'package:sahadayim/screens/start/start_screen.dart';
 import 'package:sahadayim/screens/which_position_screen.dart';
+import 'package:sahadayim/screens/ilan_screen.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -42,6 +43,11 @@ class Pages {
     GetPage(
       name: Routes.whichPositionScreen,
       page: () => const WhichPositionScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.ilanScreen,
+      page: () => const ilanScreen(),
       transition: Transition.fadeIn,
     ),
   ];
