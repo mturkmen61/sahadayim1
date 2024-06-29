@@ -8,4 +8,9 @@ class AppImages {
   static const String incorrect = 'assets/images/ic_incorrect.svg';
   static const String emailVerification =
       'assets/images/email_verification.png';
+  static const String user = 'assets/images/ic_user.svg';
+  static const String leftShoe = 'assets/images/ic_leftShoe.png';
+  static const String bothShoes = 'assets/images/ic_shoes.png';
+  static const String profile = 'assets/images/profile.png';
+  static const String ball = 'assets/images/ball.png';
 }

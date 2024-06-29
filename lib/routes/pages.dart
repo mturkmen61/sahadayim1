@@ -1,12 +1,16 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:sahadayim/bindings/screens/profile_screen_binding.dart';
+import 'package:sahadayim/bindings/screens/profile_summary_screen_binding.dart';
 import 'package:sahadayim/bindings/screens/start_screen_binding.dart';
+import 'package:sahadayim/bindings/screens/which_position_screen_binding.dart';
 import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/screens/auth/email_verification_screen.dart';
 import 'package:sahadayim/screens/profile_screen.dart';
+import 'package:sahadayim/screens/profile_summary.dart';
 import 'package:sahadayim/screens/start/start_screen.dart';
 import 'package:sahadayim/screens/which_position_screen.dart';
+import 'package:sahadayim/screens/which_properties.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -42,6 +46,16 @@ class Pages {
     GetPage(
       name: Routes.whichPositionScreen,
       page: () => const WhichPositionScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.profileSummary,
+      page: () => const ProfileSummaryScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.whichProperties,
+      page: () => const WhichPropertiesScreen(),
       transition: Transition.fadeIn,
     ),
   ];

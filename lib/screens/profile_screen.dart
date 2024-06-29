@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
@@ -17,7 +20,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
   Widget build(BuildContext context) {
     return GetBuilder<ProfileScreenController>(builder: (_) {
       return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffd5e7de),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -30,7 +33,8 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         ),
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
+            color: Color(0xffd5e7de),
+            /*gradient: LinearGradient(
               colors: [
                 Color(0xFFFFFFFF),
                 Color(0xFF177E4B),
@@ -39,87 +43,122 @@ class ProfileScreen extends GetView<ProfileScreenController> {
               stops: [0.0, 0.5, 0.7], // Renklerin durakları
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-            ),
+            ),*/
           ),
           child: Column(
             children: [
-              Center(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: const Color(0xffDBEFE1), // Kenar rengi
-                          width: 2, // Kenar kalınlığı
-                        ),
-                      ),
-                      child: const CircleAvatar(
-                        radius: 45,
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.camera_alt),
-                      ),
-                    ),
-                  ],
-                ),
+              const SizedBox(
+                height: 80,
               ),
-              Container(
-                height: Get.height * 0.75,
-                width: double.infinity,
-                alignment: Alignment.bottomCenter,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                    color: AppColors.white),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      _buildProfilText(),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Form(
-                        child: Center(child: buildUserNameTextFormFiled()),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Form(
-                        child: Center(child: buildPasswordTextFormFiled()),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildKullandiginAyakText(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Stack(
+                alignment: Alignment.center,
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    height: Get.height * 0.787,
+                    width: double.infinity,
+                    alignment: Alignment.bottomCenter,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        color: AppColors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
                         children: [
-                          buildAyakSec(Icons.directions_walk, "Sol", 1),
-                          buildAyakSec(Icons.directions_walk, "Sağ", 2),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          _buildProfilText(),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Form(
+                            child: Center(child: buildUserNameTextFormFiled()),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Form(
+                            child: Center(child: buildPasswordTextFormFiled()),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          _buildKullandiginAyakText(),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              buildAyakSec(AppImages.leftShoe, "Sol", 1),
+                              buildAyakSec(AppImages.leftShoe, "Sağ", 2),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          buildAyakSec(AppImages.bothShoes, "İkisi de", 3),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          buildSkipButton(),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      buildAyakSec(Icons.directions_walk, "İkisi de", 3),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      buildSkipButton(),
-                    ],
+                    ),
                   ),
-                ),
+                  Positioned(
+                    top: -65,
+                    child: Container(
+                      height: 130,
+                      width: 130,
+
+                      // color: Colors.yellow,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Color(0xffd5e7de)),
+                    ),
+                  ),
+                  Positioned(
+                    top: -50,
+                    child: Center(
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: const Color(0xffDBEFE1), // Kenar rengi
+                            width: 2, // Kenar kalınlığı
+                          ),
+                        ),
+                        child: InkWell(
+                            onTap: () {
+                              controller.pickImage(ImageSource.gallery);
+                            },
+                            child: controller.isLoading
+                                ? const CircularProgressIndicator()
+                                : (controller.pickedImage == null
+                                    ? const CircleAvatar(
+                                        radius: 45,
+                                        backgroundColor: Colors.white,
+                                        child: Icon(Icons.camera_alt),
+                                      )
+                                    : CircleAvatar(
+                                        radius: 45,
+                                        child: ClipOval(
+                                          child: Image.file(
+                                            File(controller.pickedImage!.path),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ))),
+                      ),
+                    ),
+                  )
+                ],
               ),
             ],
           ),
@@ -147,7 +186,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
     );
   }
 
-  Widget buildAyakSec(IconData icon, String text, int index) {
+  Widget buildAyakSec(String icon, String text, int index) {
     return InkWell(
       onTap: () {
         controller.changeSelectableFoot(index);
@@ -164,7 +203,10 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon),
+            Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: Image.asset(icon),
+            ),
             const SizedBox(width: 5),
             Text(
               text,
@@ -204,7 +246,12 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         onChanged: (value) {
           controller.onChangedUserNameTextField();
         },
-        prefixIcon: const Icon(Icons.person),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SvgPicture.asset(
+            AppImages.user,
+          ),
+        ),
         suffixIcon: controller.isUserNameSuffixIconVisible
             ? SvgPicture.asset(
                 controller.isUserNameValidated
@@ -231,7 +278,12 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         onChanged: (value) {
           controller.onChangedPasswordTextField();
         },
-        prefixIcon: const Icon(Icons.person),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SvgPicture.asset(
+            AppImages.user,
+          ),
+        ),
         suffixIcon: controller.isPasswordSuffixIconVisible
             ? SvgPicture.asset(
                 controller.isPasswordValidated
@@ -243,5 +295,27 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         hint: "Password",
       ),
     );
+  }
+}
+
+class HalfCircleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 100);
+    path.quadraticBezierTo(
+      size.width / 2,
+      size.height,
+      size.width,
+      size.height - 100,
+    );
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
