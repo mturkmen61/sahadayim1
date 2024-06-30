@@ -188,7 +188,9 @@ Widget buildSkipButton() {
           radius: 30,
           backgroundColor: Colors.white,
           child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.home);
+              },
               child: const Icon(Icons.arrow_forward_outlined,
                   color: AppColors.green))),
     ],

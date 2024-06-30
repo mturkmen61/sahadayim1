@@ -9,4 +9,5 @@ class Routes {
   static const String ilanScreen = '/ilanScreen';
   static const String profileSummary = '/ProfileSummary';
   static const String whichProperties = '/WhichProperties';
+  static const String home = '/HomeScreen';
 }
