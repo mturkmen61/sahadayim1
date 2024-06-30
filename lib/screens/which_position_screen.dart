@@ -124,7 +124,7 @@ Widget buildSkipButton() {
       const SizedBox(),
       InkWell(
         onTap: () {
-          Get.toNamed(Routes.ilanScreen);
+          Get.toNamed(Routes.whichProperties);
         },
         child: const CircleAvatar(
             radius: 30,
