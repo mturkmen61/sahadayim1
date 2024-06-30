@@ -5,7 +5,6 @@ import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
 import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
-import 'package:sahadayim/controllers/screens/profile_summary_screen_controller.dart';
 import 'package:sahadayim/routes/routes.dart';
 
 class ProfileSummaryScreen extends GetView<ProfileScreenController> {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
-import 'package:sahadayim/routes/routes.dart';
 
 class BuildSkip extends StatelessWidget {
   const BuildSkip({

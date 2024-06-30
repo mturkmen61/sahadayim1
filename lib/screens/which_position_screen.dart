@@ -6,7 +6,6 @@ import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
-import 'package:sahadayim/routes/routes.dart';
 
 class WhichPositionScreen extends GetView<ProfileScreenController> {
   const WhichPositionScreen({super.key});
