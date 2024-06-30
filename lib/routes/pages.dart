@@ -14,6 +14,7 @@ import 'package:sahadayim/screens/start/start_screen.dart';
 import 'package:sahadayim/screens/which_position_screen.dart';
 import 'package:sahadayim/screens/ilan_screen.dart';
 import 'package:sahadayim/screens/which_properties.dart';
+import 'package:sahadayim/screens/team_power_screen.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -64,6 +65,11 @@ class Pages {
     GetPage(
       name: Routes.ilanScreen,
       page: () => const ilanScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.teamPowerScreen,
+      page: () => const teamPowerScreen(),
       transition: Transition.fadeIn,
     ),
     GetPage(

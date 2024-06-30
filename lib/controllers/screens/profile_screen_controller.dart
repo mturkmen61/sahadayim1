@@ -177,6 +177,26 @@ class ProfileScreenController extends GetxController {
     }
     return count;
   }
+  double _sliderValue = 50;
+  int _selectedRadioValue = 0;
+
+  // Getter for slider value
+  double get sliderValue => _sliderValue;
+
+  // Method to update the slider value
+  void updateSlider(double value) {
+    _sliderValue = value;
+    update(); // This will notify the listeners to rebuild the UI
+  }
+
+  // Getter for selected radio value
+  int get selectedRadioValue => _selectedRadioValue;
+
+  // Method to update the selected radio value
+  void updateSelectedRadio(int value) {
+    _selectedRadioValue = value;
+    update(); // This will notify the listeners to rebuild the UI
+  }
 }
 
 enum Ozellik {
@@ -190,3 +210,6 @@ enum Ozellik {
   Partner,
   Kurucu,
 }
+
+
+
