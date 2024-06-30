@@ -14,4 +14,5 @@ class AppColors {
   static const Color red = Colors.red;
   static const Color ten = Color(0xFFF7DFAE);
   static Color ten1 = Color(0xFFF7DFAE).withOpacity(0.3);
+  static const Color sliderColor = Color(0xFFFF5630);
 }

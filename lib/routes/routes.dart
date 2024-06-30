@@ -10,5 +10,5 @@ class Routes {
   static const String profileSummary = '/ProfileSummary';
   static const String whichProperties = '/WhichProperties';
   static const String home = '/HomeScreen';
-  static const String navigationBar = '/NavigationBar';
+  static const String teamPowerScreen = '/teamPowerScreen';
 }
