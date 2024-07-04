@@ -11,4 +11,5 @@ class Routes {
   static const String whichProperties = '/WhichProperties';
   static const String home = '/HomeScreen';
   static const String teamPowerScreen = '/teamPowerScreen';
+  static const String profileCard = '/ProfileCard';
 }
