@@ -6,6 +6,7 @@ import 'package:sahadayim/bindings/screens/start_screen_binding.dart';
 import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/screens/auth/email_verification_screen.dart';
 import 'package:sahadayim/screens/main/home_screen.dart';
+import 'package:sahadayim/screens/profile/profile_card_screen.dart';
 import 'package:sahadayim/screens/profile_screen.dart';
 import 'package:sahadayim/screens/profile_summary.dart';
 import 'package:sahadayim/screens/start/start_screen.dart';
@@ -74,6 +75,11 @@ class Pages {
       name: Routes.home,
       page: () => const HomeScreen(),
       binding: HomeScreenBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.profileCard,
+      page: () => const ProfileCardScreen(),
       transition: Transition.fadeIn,
     ),
   ];
