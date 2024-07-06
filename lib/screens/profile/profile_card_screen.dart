@@ -41,7 +41,7 @@ class ProfileCardScreen extends GetView<HomeScreenController> {
                   padding: EdgeInsets.only(top: 40.h, left: 40, right: 40),
                   child: Container(
                     width: Get.width * 0.8,
-                    height: 525.h,
+                    height: 545.h,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -53,8 +53,18 @@ class ProfileCardScreen extends GetView<HomeScreenController> {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(
-                          height: 12,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  controller.showModal(context);
+                                },
+                                child: Text(
+                                  "1 Takım",
+                                  style: TextStyleHelper.white4,
+                                )),
+                          ],
                         ),
                         Container(
                           width: 90,
