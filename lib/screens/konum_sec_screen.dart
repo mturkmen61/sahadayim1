@@ -1,0 +1,165 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
+import 'package:sahadayim/routes/routes.dart';
+import 'package:sahadayim/screens/google_maps_screen.dart';
+
+import '../constants/assets.dart';
+import '../constants/colors.dart';
+import '../constants/ilVeİlceler.dart';
+import '../widgets/progress_button.dart';
+
+class KonumSecScreen extends StatefulWidget {
+  const KonumSecScreen({Key? key}) : super(key: key);
+
+  @override
+  State<KonumSecScreen> createState() => _KonumSecScreenState();
+}
+
+class _KonumSecScreenState extends State<KonumSecScreen> {
+  String? selectedIl;
+  String? selectedIlce;
+  LatLng? selectedLocation;
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<ProfileScreenController>(builder: (_) {
+      return Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(children: [
+          GoogleMapsScreen(location: selectedLocation),
+          Padding(
+            padding: const EdgeInsets.only(top: 50, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Image.asset(
+                  AppImages.logo,
+                  width: 75,
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: Get.height * 0.45,
+              width: double.infinity,
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+                color: AppColors.white.withOpacity(0.75),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 25),
+                        _buildKonumSecText(),
+                        const SizedBox(height: 25),
+                        DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            hintText: 'İl seçin',
+                            hintStyle: const TextStyle(
+                              fontFamily: "Inter",
+                              color: AppColors.black,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            contentPadding: const EdgeInsets.all(16.0),
+                          ),
+                          value: selectedIl,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedIl = newValue;
+                              selectedIlce =
+                                  null; // İl değişince ilçe de sıfırlanır
+                            });
+                          },
+                          items: ilVeIlceler.keys.map((String il) {
+                            return DropdownMenuItem<String>(
+                              value: il,
+                              child: Text(il),
+                            );
+                          }).toList(),
+                          icon: Image.asset(AppImages.arrow),
+                        ),
+                        const SizedBox(height: 16.0),
+                        DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            hintText: 'İlçe seçin',
+                            hintStyle: const TextStyle(
+                              fontFamily: "Inter",
+                              color: AppColors.black,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            contentPadding: const EdgeInsets.all(16.0),
+                          ),
+                          value: selectedIlce,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedIlce = newValue;
+                              selectedLocation = ilVeIlceler[selectedIl]!
+                                  .firstWhere((ilce) =>
+                                      ilce['name'] == newValue)['latLng'];
+                            });
+                          },
+                          items: selectedIl != null
+                              ? ilVeIlceler[selectedIl]!.map((ilce) {
+                                  return DropdownMenuItem<String>(
+                                    value: ilce['name'],
+                                    child: Text(ilce['name']),
+                                  );
+                                }).toList()
+                              : [],
+                          icon: Image.asset(AppImages.arrow),
+                        ),
+                        const SizedBox(height: 10),
+                        const SizedBox(height: 50),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25, right: 20),
+                    child: ProgressButton(
+                      onTap: () {
+                        Get.toNamed(Routes.profileSummary);
+                      },
+                      progress: 0.75,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ]),
+      );
+    });
+  }
+
+  /// Konum Seç text
+  Widget _buildKonumSecText() {
+    return const Text(
+      "Maç Yapmak İstediğin Bölgeyi Seç",
+      style: TextStyle(
+        fontSize: 24,
+        color: AppColors.green,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}

@@ -8,10 +8,12 @@ import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
 import 'package:sahadayim/constants/user_validation.dart';
-import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
-import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
 import 'package:sahadayim/widgets/outlined_text_form_field.dart';
+
+import '../../controllers/screens/profile_screen_controller.dart';
+import '../../routes/routes.dart';
+import '../../widgets/progress_button.dart';
 
 class ProfileScreen extends GetView<ProfileScreenController> {
   const ProfileScreen({super.key});
@@ -33,8 +35,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         ),
         body: Container(
           decoration: const BoxDecoration(
-            color: Color(0xffd5e7de),
-            /*gradient: LinearGradient(
+            gradient: LinearGradient(
               colors: [
                 Color(0xFFFFFFFF),
                 Color(0xFF177E4B),
@@ -43,7 +44,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
               stops: [0.0, 0.5, 0.7], // Renklerin durakları
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-            ),*/
+            ),
           ),
           child: Column(
             children: [
@@ -67,45 +68,58 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          _buildProfilText(),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Form(
-                            child: Center(child: buildUserNameTextFormFiled()),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Form(
-                            child: Center(child: buildPasswordTextFormFiled()),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          _buildKullandiginAyakText(),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          Column(
                             children: [
-                              buildAyakSec(AppImages.leftShoe, "Sol", 1),
-                              buildAyakSec(AppImages.leftShoe, "Sağ", 2),
+                              const SizedBox(
+                                height: 50,
+                              ),
+                              _buildProfilText(),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              Form(
+                                child:
+                                    Center(child: buildUserNameTextFormFiled()),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Form(
+                                child:
+                                    Center(child: buildPasswordTextFormFiled()),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              _buildKullandiginAyakText(),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  buildAyakSec(AppImages.leftShoe, "Sol", 1),
+                                  buildAyakSec(AppImages.leftShoe, "Sağ", 2),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              buildAyakSec(AppImages.bothShoes, "İkisi de", 3),
+                              const SizedBox(
+                                height: 50,
+                              ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
+                          ProgressButton(
+                            onTap: () {
+                              Get.toNamed(Routes.whichPositionScreen);
+                            },
+                            progress: 0.25,
                           ),
-                          buildAyakSec(AppImages.bothShoes, "İkisi de", 3),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          buildSkipButton(),
                         ],
                       ),
                     ),
@@ -117,7 +131,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                       width: 130,
 
                       // color: Colors.yellow,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Color(0xffd5e7de)),
                     ),
                   ),
@@ -165,25 +179,6 @@ class ProfileScreen extends GetView<ProfileScreenController> {
         ),
       );
     });
-  }
-
-  Widget buildSkipButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const SizedBox(),
-        InkWell(
-          onTap: () {
-            Get.toNamed(Routes.whichPositionScreen);
-          },
-          child: const CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.white,
-              child:
-                  Icon(Icons.arrow_forward_outlined, color: AppColors.green)),
-        ),
-      ],
-    );
   }
 
   Widget buildAyakSec(String icon, String text, int index) {

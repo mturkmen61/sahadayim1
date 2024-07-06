@@ -6,6 +6,7 @@ class AppImages {
   static const String google = "assets/images/ic_google.svg";
   static const String correct = 'assets/images/ic_correct.svg';
   static const String incorrect = 'assets/images/ic_incorrect.svg';
+  static const String arrow = 'assets/images/ic_arrow.png';
   static const String emailVerification =
       'assets/images/email_verification.png';
   static const String user = 'assets/images/ic_user.svg';

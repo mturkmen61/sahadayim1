@@ -7,6 +7,8 @@ import 'package:sahadayim/constants/styles.dart';
 import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:sahadayim/routes/routes.dart';
 
+import '../../widgets/progress_button.dart';
+
 class ProfileSummaryScreen extends GetView<ProfileScreenController> {
   const ProfileSummaryScreen({super.key});
 
@@ -170,28 +172,19 @@ class ProfileSummaryScreen extends GetView<ProfileScreenController> {
                 height: 168,
               ),
             ),
-            Positioned(right: 10.w, bottom: 28.h, child: buildSkipButton()),
+            Positioned(
+              right: 18.w,
+              bottom: 23.h,
+              child: ProgressButton(
+                onTap: () {
+                  Get.toNamed(Routes.home);
+                },
+                progress: 1,
+              ),
+            ),
           ],
         ),
       );
     });
   }
-}
-
-Widget buildSkipButton() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      const SizedBox(),
-      CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.white,
-          child: InkWell(
-              onTap: () {
-                Get.toNamed(Routes.home);
-              },
-              child: const Icon(Icons.arrow_forward_outlined,
-                  color: AppColors.green))),
-    ],
-  );
 }

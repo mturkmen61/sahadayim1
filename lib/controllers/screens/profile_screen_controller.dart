@@ -6,6 +6,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../constants/enums.dart';
+import '../../routes/routes.dart';
 
 class ProfileScreenController extends GetxController {
   /// Email Form Key on Profile Screen
@@ -89,6 +90,10 @@ class ProfileScreenController extends GetxController {
     }
 
     return Mevki.values[index].toString().substring(5);
+  }
+
+  void goToWhichPositionScreen() {
+    Get.toNamed(Routes.whichPositionScreen);
   }
 
   File? image;
@@ -177,6 +182,7 @@ class ProfileScreenController extends GetxController {
     }
     return count;
   }
+
   double _sliderValue = 50;
   int _selectedRadioValue = 0;
 
@@ -210,6 +216,3 @@ enum Ozellik {
   Partner,
   Kurucu,
 }
-
-
-

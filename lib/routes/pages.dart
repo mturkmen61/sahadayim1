@@ -5,15 +5,16 @@ import 'package:sahadayim/bindings/screens/profile_screen_binding.dart';
 import 'package:sahadayim/bindings/screens/start_screen_binding.dart';
 import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/screens/auth/email_verification_screen.dart';
+import 'package:sahadayim/screens/ilan_screen.dart';
+import 'package:sahadayim/screens/konum_sec_screen.dart';
 import 'package:sahadayim/screens/main/home_screen.dart';
 import 'package:sahadayim/screens/profile/profile_card_screen.dart';
-import 'package:sahadayim/screens/profile_screen.dart';
-import 'package:sahadayim/screens/profile_summary.dart';
+import 'package:sahadayim/screens/profile/profile_screen.dart';
+import 'package:sahadayim/screens/profile/profile_summary.dart';
 import 'package:sahadayim/screens/start/start_screen.dart';
-import 'package:sahadayim/screens/which_position_screen.dart';
-import 'package:sahadayim/screens/ilan_screen.dart';
-import 'package:sahadayim/screens/which_properties.dart';
 import 'package:sahadayim/screens/team_power_screen.dart';
+import 'package:sahadayim/screens/which_position_screen.dart';
+import 'package:sahadayim/screens/which_properties.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -80,6 +81,11 @@ class Pages {
     GetPage(
       name: Routes.profileCard,
       page: () => const ProfileCardScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.konumSecScreen,
+      page: () => KonumSecScreen(),
       transition: Transition.fadeIn,
     ),
   ];

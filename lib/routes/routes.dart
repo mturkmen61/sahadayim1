@@ -12,4 +12,5 @@ class Routes {
   static const String home = '/HomeScreen';
   static const String teamPowerScreen = '/teamPowerScreen';
   static const String profileCard = '/ProfileCard';
+  static const String konumSecScreen = '/KonumSecScreen';
 }
