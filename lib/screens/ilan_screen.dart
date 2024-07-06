@@ -4,7 +4,6 @@ import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sahadayim/constants/assets.dart';
-import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
 import 'package:sahadayim/routes/routes.dart';
 

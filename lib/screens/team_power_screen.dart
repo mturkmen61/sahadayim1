@@ -10,6 +10,7 @@ import 'package:sahadayim/routes/routes.dart';
 class teamPowerScreen extends GetView<ProfileScreenController> {
   const teamPowerScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProfileScreenController>(builder: (_) {
@@ -18,7 +19,7 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: const Text(
-            "ilanlar",
+            "İlan Oluştur",
             style: TextStyle(
                 color: AppColors.darkGreen, fontFamily: "Lato", fontSize: 16),
           ),
@@ -42,8 +43,7 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
                     data: SliderTheme.of(context).copyWith(
                       trackHeight: 4,
                       activeTrackColor: AppColors.sliderColor,
-                      inactiveTrackColor: AppColors.sliderColor.withOpacity(
-                          0.3),
+                      inactiveTrackColor: AppColors.sliderColor.withOpacity(0.3),
                       thumbColor: AppColors.sliderColor,
                       overlayColor: AppColors.sliderColor.withOpacity(0.2),
                     ),
@@ -53,6 +53,13 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
                       max: 100,
                       onChanged: (value) {
                         controller.updateSlider(value);
+                        // Slider'ı radyo düğmeleri ile senkronize et
+                        final radioIndex = (value / 20).round();
+                        if (radioIndex < 5) {
+                          controller.updateSelectedRadio(radioIndex);
+                        } else {
+                          controller.updateSelectedRadio(4);
+                        }
                       },
                     ),
                   ),
@@ -112,6 +119,9 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
       children: [
         const SizedBox(),
         InkWell(
+          onTap: () {
+            Get.toNamed(Routes.ilanlarimScreen);
+          },
           child: const CircleAvatar(
               radius: 30,
               backgroundColor: Colors.white,
@@ -135,22 +145,23 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
       children: radioLabels
           .asMap()
           .entries
-          .map((entry) =>
-          ListTile(
-            title: Text(entry.value),
-            leading: Transform.scale(
-              scale: 1.5,
-              child: Radio<int>(
-                value: entry.key,
-                groupValue: controller.selectedRadioValue,
-                onChanged: (value) {
-                  if (value != null) {
-                    controller.updateSelectedRadio(value);
-                  }
-                },
-              ),
-            ),
-          ))
+          .map((entry) => ListTile(
+        title: Text(entry.value),
+        leading: Transform.scale(
+          scale: 1.5,
+          child: Radio<int>(
+            value: entry.key,
+            groupValue: controller.selectedRadioValue,
+            onChanged: (value) {
+              if (value != null) {
+                controller.updateSelectedRadio(value);
+                // Radyo düğmesini slider ile senkronize et
+                controller.updateSlider(value * 20.0);
+              }
+            },
+          ),
+        ),
+      ))
           .toList(),
     );
   }

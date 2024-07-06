@@ -16,6 +16,10 @@ import 'package:sahadayim/screens/start/start_screen.dart';
 import 'package:sahadayim/screens/team_power_screen.dart';
 import 'package:sahadayim/screens/which_position_screen.dart';
 import 'package:sahadayim/screens/which_properties.dart';
+import 'package:sahadayim/screens/team_power_screen.dart';
+import 'package:sahadayim/screens/ilanlarim_screen.dart';
+import 'package:sahadayim/screens/notification_screen.dart';
+import 'package:sahadayim/screens/matches_screen.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -92,6 +96,21 @@ class Pages {
     GetPage(
       name: Routes.ilanDetaylariScreen,
       page: () => const IlanDetaylariScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.ilanlarimScreen,
+      page: () => const ilanlarimScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.notificationScreen,
+      page: () => const notificationScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.matchesScreen,
+      page: () => const matchesScreen(),
       transition: Transition.fadeIn,
     ),
   ];

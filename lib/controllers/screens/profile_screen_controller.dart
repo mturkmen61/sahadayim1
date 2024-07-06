@@ -9,6 +9,13 @@ import '../../constants/enums.dart';
 import '../../routes/routes.dart';
 
 class ProfileScreenController extends GetxController {
+  EBireyselAndTakimType bireyselAndTakimType = EBireyselAndTakimType.bireysel;
+  bool get isBireysel => bireyselAndTakimType == EBireyselAndTakimType.bireysel;
+
+  void onValueChangedMatches(int value){
+    bireyselAndTakimType = EBireyselAndTakimType.values.elementAt(value);
+    update();
+  }
   /// Email Form Key on Profile Screen
   GlobalKey<FormState> userNameFormKey = GlobalKey<FormState>();
 
@@ -47,6 +54,8 @@ class ProfileScreenController extends GetxController {
   bool isPasswordSuffixIconVisible = false;
 
   int selectedButtonindex = -1;
+
+  int matchesToggleButton = 0;
 
   /// Change email validation on Login Screen
   void onChangedUserNameTextField() {

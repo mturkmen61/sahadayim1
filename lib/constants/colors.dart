@@ -19,4 +19,12 @@ class AppColors {
   static Color ten1 = Color(0xFFF7DFAE).withOpacity(0.3);
   static const Color sliderColor = Color(0xFFFF5630);
   static const Color darkBlue = Color(0xFF212B36);
+  static const Color buttonColor = Color(0xFF101C17);
+  static const Color textColor = Color(0xFFF6FF84);
+  static const Color exitColor = Color(0xFF112770);
+  static const Color redButtonColor =  const Color(0x1CFF5630);
+  static const Color redTextColor = const Color(0xFFE54715);
+  static const Color acceptBackground = Color(0x1C038233);
+  static const Color clockColor = Color(0xFF038233);
+
 }

@@ -1,4 +1,5 @@
 enum ELoginAndRegisterType { login, register }
+enum EBireyselAndTakimType { bireysel, takim }
 
 enum Mevki {
   kaleci,

@@ -14,4 +14,7 @@ class Routes {
   static const String profileCard = '/ProfileCard';
   static const String konumSecScreen = '/KonumSecScreen';
   static const String ilanDetaylariScreen = '/IlanDetaylariScreen';
+  static const String ilanlarimScreen = '/ilanlarim';
+  static const String notificationScreen = '/notification';
+  static const String matchesScreen = '/matches';
 }
