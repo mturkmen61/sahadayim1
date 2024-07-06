@@ -21,6 +21,11 @@ class ProfileScreenController extends GetxController {
   /// Password controller
   TextEditingController passwordController = TextEditingController();
 
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController birthYearController = TextEditingController();
+  final TextEditingController anotherBirthYearController =
+      TextEditingController();
+
   /// Checks the email validation
   bool isUserNameValidated = false;
 

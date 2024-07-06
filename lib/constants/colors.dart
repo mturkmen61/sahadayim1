@@ -18,4 +18,5 @@ class AppColors {
   static const Color ten = Color(0xFFF7DFAE);
   static Color ten1 = Color(0xFFF7DFAE).withOpacity(0.3);
   static const Color sliderColor = Color(0xFFFF5630);
+  static const Color darkBlue = Color(0xFF212B36);
 }

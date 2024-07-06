@@ -6,6 +6,8 @@ import 'package:sahadayim/screens/main/home_screen_tab.dart';
 import 'package:sahadayim/screens/profile/profile_card_screen.dart';
 import 'package:sahadayim/widgets/primary_button.dart';
 
+import '../../screens/profile/ProfileEditScreen.dart';
+
 class HomeScreenController extends GetxController {
   int selectedIndex = 0;
 
@@ -18,7 +20,7 @@ class HomeScreenController extends GetxController {
     const HomeScreenTab(),
     const Center(child: Text('Search')),
     const Center(child: Text('Notifications')),
-    const Center(child: Text('Messages')),
+    const ProfileEditScreen(),
     const ProfileCardScreen(),
   ];
 

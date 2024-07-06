@@ -5,6 +5,7 @@ import 'package:sahadayim/bindings/screens/profile_screen_binding.dart';
 import 'package:sahadayim/bindings/screens/start_screen_binding.dart';
 import 'package:sahadayim/routes/routes.dart';
 import 'package:sahadayim/screens/auth/email_verification_screen.dart';
+import 'package:sahadayim/screens/ilan_detaylari_screen.dart';
 import 'package:sahadayim/screens/ilan_screen.dart';
 import 'package:sahadayim/screens/konum_sec_screen.dart';
 import 'package:sahadayim/screens/main/home_screen.dart';
@@ -85,7 +86,12 @@ class Pages {
     ),
     GetPage(
       name: Routes.konumSecScreen,
-      page: () => KonumSecScreen(),
+      page: () => const KonumSecScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.ilanDetaylariScreen,
+      page: () => const IlanDetaylariScreen(),
       transition: Transition.fadeIn,
     ),
   ];
