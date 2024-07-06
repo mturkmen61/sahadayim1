@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sahadayim/constants/colors.dart';
+import 'package:sahadayim/constants/styles.dart';
 
 class HomeScreenTab extends StatefulWidget {
   const HomeScreenTab({
@@ -106,6 +108,39 @@ class _HomeScreenTabState extends State<HomeScreenTab>
             ),
           ],
         ),
+        Positioned(
+          bottom: 16.0,
+          right: 16.0,
+          child: SizedBox(
+            width: 160.w,
+            height: 45.h,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(35.0), // BorderRadius ayarı
+                ),
+              ),
+              onPressed: () {},
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.green3,
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "İlan Oluştur",
+                    style: TextStyleHelper.green3,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        )
       ],
     );
   }
@@ -117,6 +152,7 @@ class _HomeScreenTabState extends State<HomeScreenTab>
         itemCount: list.length,
         itemBuilder: (context, index) {
           return Container(
+            height: 60.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(25.0),
@@ -125,12 +161,21 @@ class _HomeScreenTabState extends State<HomeScreenTab>
             padding: const EdgeInsets.all(4),
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: const Color(0xffC9F881),
-                  child: Text(
-                    list[index][0],
-                    style: const TextStyle(color: Colors.white),
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.green, // Kenar rengi
+                      width: 1, // Kenar kalınlığı
+                    ),
+                  ),
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundColor: const Color(0xffC9F881),
+                    child: Text(
+                      list[index][0],
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 16),

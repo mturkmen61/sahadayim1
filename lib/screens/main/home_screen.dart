@@ -11,6 +11,7 @@ class HomeScreen extends GetView<HomeScreenController> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenController>(builder: (_) {
       return Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         bottomNavigationBar: ResponsiveNavigationBar(
           selectedIndex: controller.selectedIndex,
           onTabChange: controller.changeTab,
