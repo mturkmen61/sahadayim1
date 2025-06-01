@@ -34,20 +34,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                 colors: [Color(0xffDBEFE1), Color(0xffC9FF8B)],
               ),
             ),
-            NavigationBarButton(
-              text: 'Arama',
-              icon: Icons.search,
-              backgroundGradient: LinearGradient(
-                colors: [Color(0xffDBEFE1), Color(0xffC9FF8B)],
-              ),
-            ),
-            NavigationBarButton(
-              text: 'İlan',
-              icon: Icons.settings,
-              backgroundGradient: LinearGradient(
-                colors: [Color(0xffDBEFE1), Color(0xffC9FF8B)],
-              ),
-            ),
+
             NavigationBarButton(
               text: 'Bildirim',
               icon: Icons.notifications,
@@ -55,6 +42,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                 colors: [Color(0xffDBEFE1), Color(0xffC9FF8B)],
               ),
             ),
+
             NavigationBarButton(
               text: 'Profil',
               icon: Icons.person,

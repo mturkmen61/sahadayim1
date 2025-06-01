@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
 import 'package:sahadayim/controllers/screens/home_screen_controller.dart';
+import 'package:sahadayim/routes/routes.dart';
 
 class ProfileCardScreen extends GetView<HomeScreenController> {
   const ProfileCardScreen({super.key});
@@ -23,9 +23,8 @@ class ProfileCardScreen extends GetView<HomeScreenController> {
                 color: AppColors.darkGreen, fontFamily: "Lato", fontSize: 16),
           ),
           centerTitle: true,
-          leading: _buildCircularIcon("assets/images/TextLeft.svg"),
           actions: [
-            _buildCircularIcon("assets/images/ChatCenteredText.svg"),
+            _editButton("Kartı Düzenle"),
           ],
         ),
         body: DefaultTabController(
@@ -144,24 +143,30 @@ class ProfileCardScreen extends GetView<HomeScreenController> {
     });
   }
 
-  Widget _buildCircularIcon(String assetName) {
+  Widget _editButton(String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: const Color(0xFFF1F1F1), // Adjust the color as needed
-            width: 1.0, // 1-pixel border width
+      child: InkWell(
+        onTap: () {
+          Get.toNamed(Routes.ProfileEditScreen);
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            border: Border.all(
+              color: const Color(0xFFF1F1F1),
+              width: 1.0,
+            ),
+            color: Colors.grey,
           ),
-        ),
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: SvgPicture.asset(
-            assetName,
-            fit: BoxFit.scaleDown,
-            width: 24, // Adjust the width and height as needed
-            height: 24,
+          child: Center(
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Colors.black, // Adjust the text color as needed
+                fontSize: 16, // Adjust the font size as needed
+              ),
+            ),
           ),
         ),
       ),
@@ -189,11 +194,11 @@ class Tab1Content extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star, color: Colors.black),
-                SizedBox(height: 8),
+                const Icon(Icons.star, color: Colors.black),
+                const SizedBox(height: 8),
                 Text(
                   'Item ${index + 1}',
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),

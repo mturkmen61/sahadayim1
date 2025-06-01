@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 import '../../constants/enums.dart';
 import '../../routes/routes.dart';
+
+
 
 class ProfileScreenController extends GetxController {
   EBireyselAndTakimType bireyselAndTakimType = EBireyselAndTakimType.bireysel;
@@ -129,18 +132,27 @@ class ProfileScreenController extends GetxController {
   }
 
   Future<void> cropImage(String path) async {
-    final ImageCropper cropper = ImageCropper();
-    final croppedFile = await cropper.cropImage(
+    final croppedFile = await ImageCropper().cropImage(
       sourcePath: path,
-      aspectRatioPresets: [
-        CropAspectRatioPreset.square,
+      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1), // Kare oran
+      uiSettings: [
+        AndroidUiSettings(
+          toolbarTitle: 'Resmi Kırp',
+          initAspectRatio: CropAspectRatioPreset.square,
+          lockAspectRatio: true,
+
+        ),
+        IOSUiSettings(
+          title: 'Resmi Kırp',
+        ),
       ],
-      cropStyle: CropStyle.circle,
     );
     pickedImage = croppedFile;
     isLoading = false;
     update();
   }
+
+
 
   Map<Ozellik, bool> secilenOzellikler = {
     Ozellik.Yaratici: false,

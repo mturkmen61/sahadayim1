@@ -20,6 +20,8 @@ import 'package:sahadayim/screens/team_power_screen.dart';
 import 'package:sahadayim/screens/ilanlarim_screen.dart';
 import 'package:sahadayim/screens/notification_screen.dart';
 import 'package:sahadayim/screens/matches_screen.dart';
+import 'package:sahadayim/screens/contact_screen.dart';
+import 'package:sahadayim/screens/profile/ProfileEditScreen.dart';
 
 import '../bindings/screens/login_screen_binding.dart';
 import '../screens/auth/login_screen.dart';
@@ -111,6 +113,16 @@ class Pages {
     GetPage(
       name: Routes.matchesScreen,
       page: () => const matchesScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.contactScreen,
+      page: () => const contactScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: Routes.ProfileEditScreen,
+      page: () => const ProfileEditScreen(),
       transition: Transition.fadeIn,
     ),
   ];

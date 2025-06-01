@@ -5,7 +5,7 @@ import 'package:sahadayim/controllers/screens/profile_screen_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sahadayim/constants/assets.dart';
 import 'package:sahadayim/widgets/custom_text_button.dart';
-import 'package:sahadayim/routes/routes.dart';
+import 'package:sahadayim/routes/routes.dart'; // Import the routes
 
 class ilanScreen extends GetView<ProfileScreenController> {
   const ilanScreen({super.key});
@@ -18,15 +18,11 @@ class ilanScreen extends GetView<ProfileScreenController> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: const Text(
-            "ilanlaarrr",
+            "İlanlar",
             style: TextStyle(
                 color: AppColors.darkGreen, fontFamily: "Lato", fontSize: 16),
           ),
           centerTitle: true,
-          leading: _buildCircularIcon("assets/images/TextLeft.svg"),
-          actions: [
-            _buildCircularIcon("assets/images/ChatCenteredText.svg"),
-          ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,17 +35,26 @@ class ilanScreen extends GetView<ProfileScreenController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(child: _buildCategoryButton(
-                        "Takımına oyuncu", "assets/images/Group.svg")),
+                    Expanded(
+                      child: _buildCategoryButton(
+                        "Takımına oyuncu",
+                        "assets/images/Group.svg",
+                        Routes.ilanDetaylariScreen, // Navigate to notification_screen
+                      ),
+                    ),
                     const SizedBox(width: 12), // Adjust gap between buttons
-                    Expanded(child: _buildCategoryButton(
-                        "Takımına rakip bulmak", "assets/images/top.svg")),
+                    Expanded(
+                      child: _buildCategoryButton(
+                        "Takımına rakip bulmak",
+                        "assets/images/top.svg",
+                        Routes.teamPowerScreen, // Navigate to teampowerscreen
+                      ),
+                    ),
                     const SizedBox(height: 30),
                   ],
                 ),
               ],
             ),
-            buildSkipButton(),
           ],
         ),
       );
@@ -94,55 +99,41 @@ class ilanScreen extends GetView<ProfileScreenController> {
     );
   }
 
-  Widget _buildCategoryButton(String text, String iconAsset) {
-    return Container(
-      height: 115,
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 23),
-      margin: const EdgeInsets.symmetric(vertical: 6),
-      decoration: const BoxDecoration(
-        color: AppColors.lightGrey,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(4),
-          bottomLeft: Radius.circular(4),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            iconAsset,
-            width: 24, // Adjust icon size as needed
-            height: 24,
+  Widget _buildCategoryButton(String text, String iconAsset, String route) {
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(route); // Navigate to the specified route
+      },
+      child: Container(
+        height: 115,
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 23),
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        decoration: const BoxDecoration(
+          color: AppColors.lightGrey,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(4),
+            bottomLeft: Radius.circular(4),
           ),
-          const SizedBox(height: 12), // Adjust space between icon and text
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 12,
-              color: AppColors.green,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              iconAsset,
+              width: 24, // Adjust icon size as needed
+              height: 24,
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildSkipButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const SizedBox(),
-        InkWell(
-          onTap: () {
-            Get.toNamed(Routes.teamPowerScreen);
-          },
-          child: const CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.white,
-              child:
-              Icon(Icons.arrow_forward_outlined, color: AppColors.green)),
+            const SizedBox(height: 12), // Adjust space between icon and text
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 12,
+                color: AppColors.green,
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

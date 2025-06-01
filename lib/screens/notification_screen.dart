@@ -24,23 +24,7 @@ class notificationScreen extends GetView<ProfileScreenController> {
           ),
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: SvgPicture.asset("assets/images/TextLeft.svg"),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-        ),
-        actions: [
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.notificationScreen);
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset("assets/images/ChatCenteredText.svg"),
-            ),
-          ),
-        ],
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,23 +32,29 @@ class notificationScreen extends GetView<ProfileScreenController> {
           children: [
             _buildNotificationCard(
               iconPath: "assets/images/top1.svg",
-              text: "Ahmet size maç yapma isteği gönderdi",
+              text: "Ahmet size rakip olmak istiyor",
               timeText: "İki saat önce",
-              onAccept: () {},
+              onAccept: () {
+                Get.toNamed(Routes.contactScreen);
+              },
               onReject: () {},
             ),
             _buildNotificationCard(
               iconPath: "assets/images/baller.svg",
               text: "Ahmet sizi takıma davet etti",
               timeText: "Bir saat önce",
-              onAccept: () {},
+              onAccept: () {
+                Get.toNamed(Routes.contactScreen);
+              },
               onReject: () {},
             ),
             _buildNotificationCard(
               iconPath: "assets/images/top1.svg",
               text: "Ali size maç yapma isteği gönderdi",
               timeText: "Üç saat önce",
-              onAccept: () {},
+              onAccept: () {
+                Get.toNamed(Routes.contactScreen);
+              },
               onReject: () {},
             ),
           ],

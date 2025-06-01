@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Use `flutter_svg` for SVG images
 import 'package:sahadayim/constants/colors.dart';
 import 'package:sahadayim/constants/styles.dart';
+import 'package:sahadayim/routes/routes.dart';
+import 'package:get/get.dart';
 
 class HomeScreenTab extends StatefulWidget {
-  const HomeScreenTab({
-    super.key,
-  });
+  const HomeScreenTab({super.key});
 
   @override
   State<HomeScreenTab> createState() => _HomeScreenTabState();
@@ -29,7 +29,7 @@ class _HomeScreenTabState extends State<HomeScreenTab>
     super.dispose();
   }
 
-  // Örnek rakip takım listesi
+  // Example team list
   final List<String> _teamList = [
     'Team A',
     'Team B',
@@ -64,19 +64,23 @@ class _HomeScreenTabState extends State<HomeScreenTab>
               title: const Text(
                 "Ilanlar",
                 style: TextStyle(
-                    color: AppColors.darkGreen,
-                    fontFamily: "Lato",
-                    fontSize: 16),
+                  color: AppColors.darkGreen,
+                  fontFamily: "Lato",
+                  fontSize: 16,
+                ),
               ),
               centerTitle: true,
-              leading: _buildCircularIcon("assets/images/TextLeft.svg"),
+
               actions: [
-                _buildCircularIcon("assets/images/ChatCenteredText.svg"),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.matchesScreen);
+                  },
+                  child: _buildCircularIcon("assets/images/ChatCenteredText.svg"),
+                ),
               ],
             ),
-            const SizedBox(
-              height: 40,
-            ),
+            const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
               child: TabBar(
@@ -88,12 +92,8 @@ class _HomeScreenTabState extends State<HomeScreenTab>
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: const [
-                  Tab(
-                    text: 'Rakip',
-                  ),
-                  Tab(
-                    text: 'Eksik Takım',
-                  ),
+                  Tab(text: 'Rakip'),
+                  Tab(text: 'Eksik Takım'),
                 ],
               ),
             ),
@@ -111,36 +111,32 @@ class _HomeScreenTabState extends State<HomeScreenTab>
         Positioned(
           bottom: 16.0,
           right: 16.0,
-          child: SizedBox(
-            width: 160.w,
-            height: 45.h,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(35.0), // BorderRadius ayarı
-                ),
-              ),
-              onPressed: () {},
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.add,
-                    color: AppColors.green3,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "İlan Oluştur",
-                    style: TextStyleHelper.green3,
-                  ),
-                ],
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(35.0), // BorderRadius ayarı
               ),
             ),
+            onPressed: () {
+              Get.toNamed(Routes.ilanScreen); // Ensure Routes.ilanScreen is properly defined
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.min, // Adjust the row width to content size
+              children: [
+                const Icon(
+                  Icons.add,
+                  color: AppColors.green3,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  "İlan Oluştur",
+                  style: TextStyleHelper.green3,
+                ),
+              ],
+            ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -229,3 +225,4 @@ class _HomeScreenTabState extends State<HomeScreenTab>
     );
   }
 }
+

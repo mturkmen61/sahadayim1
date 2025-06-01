@@ -24,10 +24,7 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
                 color: AppColors.darkGreen, fontFamily: "Lato", fontSize: 16),
           ),
           centerTitle: true,
-          leading: _buildCircularIcon("assets/images/TextLeft.svg"),
-          actions: [
-            _buildCircularIcon("assets/images/ChatCenteredText.svg"),
-          ],
+
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +99,7 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
   Widget _buildIlanScreenText() {
     return const Center(
       child: Text(
-        "takımın gücü",
+        "takımın powerı",
         style: TextStyle(
           fontSize: 15,
           color: AppColors.green,
@@ -120,7 +117,7 @@ class teamPowerScreen extends GetView<ProfileScreenController> {
         const SizedBox(),
         InkWell(
           onTap: () {
-            Get.toNamed(Routes.ilanlarimScreen);
+            Get.toNamed(Routes.ilanDetaylariScreen);
           },
           child: const CircleAvatar(
               radius: 30,

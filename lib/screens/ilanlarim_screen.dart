@@ -21,27 +21,7 @@ class ilanlarimScreen extends GetView<ProfileScreenController> {
                 color: AppColors.darkGreen, fontFamily: "Lato", fontSize: 16),
           ),
           centerTitle: true,
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                icon: SvgPicture.asset("assets/images/TextLeft.svg"),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-          actions: [
-            InkWell(
-              onTap: () {
-                Get.toNamed(Routes.notificationScreen);
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.asset("assets/images/ChatCenteredText.svg"),
-              ),
-            ),
-          ],
+
         ),
         drawer: _buildSideMenu(),
         body: Column(

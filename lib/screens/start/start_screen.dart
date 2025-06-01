@@ -58,18 +58,18 @@ class StartPage extends GetView<StartScreenController> {
                   ),
                   OnBoardingText(
                     text1: controller.currentPageIndex == 0
-                        ? "1.sayfa"
+                        ? "SAHADAYIM'A HOŞGELDİN"
                         : controller.currentPageIndex == 1
-                            ? "2.sayfa"
+                            ? "SAHADAYIM SAYESİNDE"
                             : controller.currentPageIndex == 2
-                                ? "3.sayfa"
+                                ? "SAHADAYIM SAYESİNDE"
                                 : "",
                     text2: controller.currentPageIndex == 0
-                        ? AppString.loremIpsumDolor
+                        ? AppString.sayfa1
                         : controller.currentPageIndex == 1
-                            ? AppString.loremIpsumDolor
+                            ? AppString.sayfa2
                             : controller.currentPageIndex == 2
-                                ? AppString.loremIpsumDolor
+                                ? AppString.sayfa3
                                 : "",
                   ),
                   const SizedBox(

@@ -17,4 +17,6 @@ class Routes {
   static const String ilanlarimScreen = '/ilanlarim';
   static const String notificationScreen = '/notification';
   static const String matchesScreen = '/matches';
+  static const String contactScreen = '/contact';
+  static const String ProfileEditScreen = '/ProfileEditScreen';
 }

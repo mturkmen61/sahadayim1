@@ -24,18 +24,7 @@ class matchesScreen extends GetView<ProfileScreenController> {
           ),
         ),
         centerTitle: true,
-        leading: _buildCircularIcon("assets/images/TextLeft.svg"),
-        actions: [
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.notificationScreen);
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset("assets/images/ChatCenteredText.svg"),
-            ),
-          ),
-        ],
+
       ),
       body: GetBuilder<ProfileScreenController>(
         builder: (_) {

@@ -5,6 +5,7 @@ import 'package:sahadayim/constants/styles.dart';
 import 'package:sahadayim/screens/main/home_screen_tab.dart';
 import 'package:sahadayim/screens/profile/profile_card_screen.dart';
 import 'package:sahadayim/widgets/primary_button.dart';
+import '../../screens/notification_screen.dart';
 
 import '../../screens/profile/ProfileEditScreen.dart';
 
@@ -18,9 +19,7 @@ class HomeScreenController extends GetxController {
 
   final List<Widget> pages = [
     const HomeScreenTab(),
-    const Center(child: Text('Search')),
-    const Center(child: Text('Notifications')),
-    const ProfileEditScreen(),
+    const notificationScreen(),
     const ProfileCardScreen(),
   ];
 
